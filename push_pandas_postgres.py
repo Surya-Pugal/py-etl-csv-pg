@@ -13,8 +13,7 @@ from sqlalchemy import create_engine
 # Instantiate sqlachemy.create_engine object
 conn_string = 'postgresql://postgres:root@localhost:5432/postgres'
 
-db = create_engine(conn_string)
-conn = db.connect()
+# pythonn = db.connect()
 print("Data base connected...")
 
 # read the csv in to pandas dataframe
@@ -28,5 +27,6 @@ print(df)
 df.to_sql(
     'organization_data', 
     conn_string,
+    if_exists='append',
     index=False # Not copying over the index
 )
